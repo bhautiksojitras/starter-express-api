@@ -204,7 +204,7 @@ app.post('/estimate', (req, res) => {
                       },
                       type,
                       wrapping:  { // Default wrapping if not provided
-                          id: wrapping.id,
+                          id: wrapping?.id || 'wraping',
                           price: {
                               amount_exclusive: 5,
                               amount_inclusive: 7.5,
@@ -229,7 +229,7 @@ app.post('/estimate', (req, res) => {
                   };
               }),
               shipping: { // Default shipping if not provided
-                  id: shipping.id,
+                  id: shipping?.id || 'shipping',
                   price: {
                       amount_inclusive: 15,
                       amount_exclusive: 10,
@@ -252,7 +252,7 @@ app.post('/estimate', (req, res) => {
                   type: "shipping"
               },
               handling:  { // Default handling if not provided
-                  id: handling.id,
+                  id: handling?.id || 'handling',
                   price: {
                       amount_inclusive: 0,
                       amount_exclusive: 0,
