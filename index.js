@@ -186,14 +186,14 @@ app.post('/estimate', (req, res) => {
                   return {
                       id: id , 
                       price: {
-                          amount_inclusive: price.amount + (price.amount * 0.5), 
+                          amount_inclusive: price.amount + (price.amount * 2), 
                           amount_exclusive: price.amount, 
-                          total_tax: price.amount * 0.5, 
-                          tax_rate:  0.5, 
+                          total_tax: price.amount * 2, 
+                          tax_rate:  2, 
                           sales_tax_summary:[{ 
                               name: "Brutal Tax",
-                              rate: 0.5,
-                              amount:  price.amount * 0.5,
+                              rate: 2,
+                              amount:  price.amount * 2,
                               tax_class: {
                                   class_id: "0",
                                   name: "Brutal Tax",
@@ -213,7 +213,7 @@ app.post('/estimate', (req, res) => {
                                       amount: 2.5,
                                       id: "1",
                                       name: "BRUTAL TAX",
-                                      rate: 0.5,
+                                      rate: 2,
                                       tax_class: {
                                           class_id: "6",
                                           code: "US",
@@ -221,7 +221,7 @@ app.post('/estimate', (req, res) => {
                                       }
                                   }
                               ],
-                              tax_rate: 0.5,
+                              tax_rate: 2,
                               total_tax: 2.5
                           },
                           type: "wrapping"
@@ -234,11 +234,11 @@ app.post('/estimate', (req, res) => {
                       amount_inclusive: 15,
                       amount_exclusive: 10,
                       total_tax: 5,
-                      tax_rate: 0.5,
+                      tax_rate: 2,
                       sales_tax_summary: [
                           {
                               name: "Brutal Tax",
-                              rate: 0.5,
+                              rate: 2,
                               amount: 5,
                               tax_class: {
                                   class_id: "0",
@@ -257,11 +257,11 @@ app.post('/estimate', (req, res) => {
                       amount_inclusive: 0,
                       amount_exclusive: 0,
                       total_tax: 0,
-                      tax_rate: 0.5,
+                      tax_rate: 2,
                       sales_tax_summary: [
                           {
                               name: "Brutal Tax",
-                              rate: 0.5,
+                              rate: 2,
                               amount: 0,
                               tax_class: {
                                   class_id: "0",
@@ -305,14 +305,14 @@ app.post('/commit', (req, res) => {
                   return {
                       id, // Reusing the ID from the request body
                       price: {
-                          amount_inclusive: price.amount + price.amount * 0.5,
+                          amount_inclusive: price.amount + price.amount * 2,
                           amount_exclusive: price.amount,
-                          total_tax:  price.amount * 0.5,
-                          tax_rate:  0.5, 
+                          total_tax:  price.amount * 2,
+                          tax_rate:  2, 
                           sales_tax_summary:  [{ // Default sales tax summary
                               name: "Brutal Tax",
-                              rate: 0.5,
-                              amount: price.amount * 0.5,
+                              rate: 2,
+                              amount: price.amount * 2,
                               tax_class: {
                                   class_id: "0",
                                   name: "Brutal Tax",
@@ -332,7 +332,7 @@ app.post('/commit', (req, res) => {
                                       amount: 2.5,
                                       id: "1",
                                       name: "BRUTAL TAX",
-                                      rate: 0.5,
+                                      rate: 2,
                                       tax_class: {
                                           class_id: "6",
                                           code: "US",
@@ -340,7 +340,7 @@ app.post('/commit', (req, res) => {
                                       }
                                   }
                               ],
-                              tax_rate: 0.5,
+                              tax_rate: 2,
                               total_tax: 2.5
                           },
                           type: "wrapping"
@@ -353,11 +353,11 @@ app.post('/commit', (req, res) => {
                       amount_inclusive: 15,
                       amount_exclusive: 10,
                       total_tax: 5,
-                      tax_rate: 0.5,
+                      tax_rate: 2,
                       sales_tax_summary: [
                           {
                               name: "Brutal Tax",
-                              rate: 0.5,
+                              rate: 2,
                               amount: 5,
                               tax_class: {
                                   class_id: "0",
@@ -376,11 +376,11 @@ app.post('/commit', (req, res) => {
                       amount_inclusive: 0,
                       amount_exclusive: 0,
                       total_tax: 0,
-                      tax_rate: 0.5,
+                      tax_rate: 2,
                       sales_tax_summary: [
                           {
                               name: "Brutal Tax",
-                              rate: 0.5,
+                              rate: 2,
                               amount: 0,
                               tax_class: {
                                   class_id: "0",
@@ -413,13 +413,13 @@ app.post('/adjust', (req, res) => {
                   return {
                       id,
                       price: {
-                          amount_inclusive: price.amount +  price.amount * 0.5,
+                          amount_inclusive: price.amount +  price.amount * 2,
                           amount_exclusive: price.amount,
-                          total_tax:  price.amount * 0.5,
-                          tax_rate:  0.5, // Default tax rate
+                          total_tax:  price.amount * 2,
+                          tax_rate:  2, // Default tax rate
                           sales_tax_summary:  [{ // Default sales tax summary
                               name: "Brutal Tax",
-                              rate: 0.5,
+                              rate: 2,
                               amount: price.total_tax || (price.amount_inclusive - price.amount_exclusive),
                               tax_class: {
                                   class_id: "0",
@@ -440,7 +440,7 @@ app.post('/adjust', (req, res) => {
                                       amount: 2.5,
                                       id: "1",
                                       name: "BRUTAL TAX",
-                                      rate: 0.5,
+                                      rate: 2,
                                       tax_class: {
                                           class_id: "6",
                                           code: "US",
@@ -448,7 +448,7 @@ app.post('/adjust', (req, res) => {
                                       }
                                   }
                               ],
-                              tax_rate: 0.5,
+                              tax_rate: 2,
                               total_tax: 2.5
                           },
                           type: "wrapping"
@@ -461,11 +461,11 @@ app.post('/adjust', (req, res) => {
                       amount_inclusive: 15,
                       amount_exclusive: 10,
                       total_tax: 5,
-                      tax_rate: 0.5,
+                      tax_rate: 2,
                       sales_tax_summary: [
                           {
                               name: "Brutal Tax",
-                              rate: 0.5,
+                              rate: 2,
                               amount: 5,
                               tax_class: {
                                   class_id: "0",
@@ -484,11 +484,11 @@ app.post('/adjust', (req, res) => {
                       amount_inclusive: 0,
                       amount_exclusive: 0,
                       total_tax: 0,
-                      tax_rate: 0.5,
+                      tax_rate: 2,
                       sales_tax_summary: [
                           {
                               name: "Brutal Tax",
-                              rate: 0.5,
+                              rate: 2,
                               amount: 0,
                               tax_class: {
                                   class_id: "0",
