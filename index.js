@@ -203,7 +203,7 @@ app.post('/estimate', (req, res) => {
                           }]
                       },
                       type,
-                      wrapping:  { // Default wrapping if not provided
+                      wrapping:  wrapping ?  { // Default wrapping if not provided
                           id: wrapping?.id || 'wraping',
                           price: {
                               amount_exclusive: 5,
@@ -225,7 +225,7 @@ app.post('/estimate', (req, res) => {
                               total_tax: 2.5
                           },
                           type: "wrapping"
-                      }
+                      } : null
                   };
               }),
               shipping: { // Default shipping if not provided
