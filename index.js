@@ -172,7 +172,8 @@ app.post('/estimate', (req, res) => {
   // Extracting relevant data from the request body
   const { id, documents } = req.body;
   console.log('body')
-  console.log(req.body)
+  console.log(JSON.stringify(req.body,null,2))
+  try{
   const response = {
       id: id,  
       documents: documents.map(document => {
@@ -276,9 +277,13 @@ app.post('/estimate', (req, res) => {
           };
       })
   };
+  res.json(response);
+}
+catch(e){
+    console.log(e.message)
+}
 
   // Sending the response
-  res.json(response);
 });
 
 app.post('/void',(req,res)=>{
