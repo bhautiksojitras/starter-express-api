@@ -171,7 +171,8 @@ app.post('/rate',(req,res)=>{
 app.post('/estimate', (req, res) => {
   // Extracting relevant data from the request body
   const { id, documents } = req.body;
-
+  console.log('body')
+  console.log(req.body)
   const response = {
       id: id,  
       documents: documents.map(document => {
